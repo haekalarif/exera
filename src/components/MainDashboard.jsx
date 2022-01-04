@@ -8,6 +8,7 @@ import "../App.css";
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import IncidentDataDrafts from './IncidentDataDrafts';
 import $ from 'jquery';
+import { useHistory } from 'react-router-dom';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -15,9 +16,9 @@ const { SubMenu } = Menu;
 function MainDashboard(){
 
   let [collapsed, setCollapsed]=useState();
+  let history = useHistory();
 
-  let toggle = (e) => {
-
+  let toggle = (e) => { //sidebar collaps
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
 
@@ -27,11 +28,10 @@ function MainDashboard(){
       setCollapsed(true);
     }
   };
-  // function onClick(e){
-  //   e.preventDefault();
-  //   $("#wrapper").toggleClass("toggled");
-  // }
-  
+
+  function logout(){
+    history.push('/');
+  }
 
   useEffect(() => {
     setCollapsed(true);
@@ -46,7 +46,7 @@ function MainDashboard(){
             <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor : "#c20000" , height:58}}>
               <div className="container mx-5">
                 <div className='d-flex align-items-center'>
-                  { !collapsed &&
+                  { !collapsed && //when true false (artinya tidak false)
                     <i className="bi bi-list text-white" style={{ fontSize: 32}}  onClick={toggle}></i>
                   }
                   {/* <a className="navbar-brand text-white" href="#">Navbar</a> */}
@@ -62,7 +62,7 @@ function MainDashboard(){
                           <i className="bi bi-person-circle"></i> Profile
                           </button>
                           <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a className="dropdown-item" href="#">Logout</a></li>
+                            <li><Link className="dropdown-item" to="/Login" onClick={logout} >Logout</Link></li>
                             <li><a className="dropdown-item" href="#">Change Password</a></li>
                           </ul>
                         </div>
@@ -75,28 +75,27 @@ function MainDashboard(){
             <div id="sidebar-wrapper">
                 <ul className="sidebar-nav mt-2">
                     <li className="sidebar-brand">
-                        <i className="bi bi-list text-white d-inline-block" style={{ fontSize: 32}}  onClick={toggle}></i>
+                        <div className="text-start">
+                          <i className="bi bi-list text-white" style={{ fontSize: 32}}  onClick={toggle}></i>
+                        </div>
                     </li>
                     <li>
                       <p style={{ fontSize:20 }} className='text-white'>Page Navigation</p>
                     </li>
                     <li>
-                        <Link to='/IncidentDataDrafts' >Incident Data Drafts </Link>
+                        <Link to='/IncidentDataDrafts' >Incident Data Drafts</Link>
                     </li>
                     <li>
-                        <a href="#">Overview</a>
+                      <Link to='#' >Official Incident Data</Link>
                     </li>
                     <li>
-                        <a href="#">Events</a>
+                      <Link to='#' >Master Data</Link>
                     </li>
                     <li>
-                        <a href="#">About</a>
+                      <Link to='#' >Customer Data</Link>
                     </li>
                     <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
+                      <Link to='#' >Master Data</Link>
                     </li>
                 </ul>
             </div>
@@ -105,13 +104,9 @@ function MainDashboard(){
             {/* <!-- Page Content --> */}
             <div id="page-content-wrapper">
                 <div className="container-fluid">
-                    {/* <div className="row">
-                        <div className="col-lg-12"> */}
-                            <Switch>
-                              <Route exact path='/IncidentDataDrafts' component={IncidentDataDrafts} />
-                            </Switch>
-                        {/* </div>
-                    </div> */}
+                  <Switch>
+                    <Route exact path='/IncidentDataDrafts' component={IncidentDataDrafts} />
+                  </Switch>
                 </div>
             </div>
             {/* <!-- /#page-content-wrapper --> */}
