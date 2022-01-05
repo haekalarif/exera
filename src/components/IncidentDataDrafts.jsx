@@ -6,50 +6,58 @@ import DataTable from 'react-data-table-component';
 
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
-function IncidentDataDrafts() {
+export default function IncidentDataDrafts() {
     const { url } = useRouteMatch();
     
     const columns = [
         {
             name: 'Status',
-            selector: row => row.title,
+            selector: row => row.status,
             sortable : true,
         },
         {
             name: 'Action',
-            selector: row => row.year,
+            selector: row => row.action,
             sortable : true
         },
         {
             name: 'Date Incident',
+            selector: row => row.dateincident,
             sortable : true
         },
         {
             name: 'Time Incident',
+            selector: row => row.timeincident,
             sortable : true
         },
         {
             name: 'Type of incident',
+            selector: row => row.typeofincident,
             sortable : true
         },
         {
             name: 'Party 1',
+            selector: row => row.party1,
             sortable : true
         },
         {
             name: 'Party 2',
+            selector: row => row.party2,
             sortable : true
         },
         {
             name: 'Type of Target',
+            selector: row => row.typeoftarget,
             sortable : true
         },
         {
             name: 'State/Region',
+            selector: row => row.stateregion,
             sortable : true
         },
         {
             name: 'Towns',
+            selector: row => row.towns,
             sortable : true
         },
         
@@ -58,96 +66,72 @@ function IncidentDataDrafts() {
     const data = [
         {
             id: 1,
-            title: <b>123</b>,
-            year: '1988',
+            status: <p className="p-1 m-0 bg-danger text-white text-bold rounded">
+                        <strong>Rejected <i class="bi bi-x-circle-fill"></i></strong>
+                    </p>,
+            action : (  <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-primary"><i class="bi bi-clipboard-plus"></i></button>
+                            <button type="button" class="btn btn-primary"><i class="bi bi-trash-fill"></i></button>
+                            <button type="button" class="btn btn-primary"><i class="bi bi-card-checklist"></i></button>
+                        </div>
+                    ),
+            dateincident : '08/21/2021',
+            timeincident : '19.00',
+            typeofincident : 'Ambing',
+            party1 : 'Security forces',
+            party2 : 'EAO - KIA',
+            typeoftarget : 'Army Facality',
+            stateregion : 'Mon',
+            towns : 'Paung'
         },
         {
             id: 2,
-            title: 'Ghostbusters',
-            year: '1984',
+            status: (<p className="p-1 m-0 bg-warning text-dark text-bold rounded">
+                        <strong>Draft <i class="bi bi-file-bar-graph-fill"></i></strong>
+                    </p>),
+            action : (  <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-primary"><i class="bi bi-clipboard-plus"></i></button>
+                            <button type="button" class="btn btn-primary"><i class="bi bi-trash-fill"></i></button>
+                            <button type="button" class="btn btn-primary"><i class="bi bi-card-checklist"></i></button>
+                        </div>
+                    ),
+            dateincident : '08/21/2021',
+            timeincident : '19.00',
+            typeofincident : 'Bombing',
+            party1 : 'Security forces',
+            party2 : 'EAO - KIA',
+            typeoftarget : 'Army Facality',
+            stateregion : 'Mon',
+            towns : 'Paung'
         },
         {
             id: 3,
-            title: 'Ghostbusters',
-            year: '1984',
-        },
-        {
-            id: 4,
-            title: 'Ghostbusters',
-            year: '1984',
-        },
-        {
-            id: 5,
-            title: 'Ghostbusters',
-            year: '1984',
-        },
-        {
-            id: 6,
-            title: 'Ghostbusters',
-            year: '1984',
-        },
-        {
-            id: 7,
-            title: 'Ghostbusters',
-            year: '1984',
-        },
-        {
-            id: 8,
-            title: 'Ghostbusters',
-            year: '1984',
-        },
-        {
-            id: 9,
-            title: 'Ghostbusters',
-            year: '1984',
-        },
-        {
-            id: 10,
-            title: 'Ghostbusters',
-            year: '1984',
-        },
-        {
-            id: 11,
-            title: 'Ghostbusters',
-            year: '1984',
-        },
-        {
-            id: 12,
-            title: 'Ghostbusters',
-            year: '1984',
-        },
-        {
-            id: 13,
-            title: 'Ghostbusters',
-            year: '1984',
-        },
-        {
-            id: 14,
-            title: 'Ghostbusters',
-            year: '1984',
-        },
-        {
-            id: 15,
-            title: 'Ghostbusters',
-            year: '1984',
-        },
-        {
-            id: 16,
-            title: 'Ghostbusters',
-            year: '1984',
-        },
-        {
-            id: 17,
-            title: 'Ghostbusters',
-            year: '1984',
-        },
+            status: (<p className="p-1 m-0 bg-success text-white text-bold rounded">
+                        <strong>Submitted <i class="bi bi-check-circle-fill"></i></strong>
+                    </p>),
+            action : (  <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-primary"><i class="bi bi-clipboard-plus"></i></button>
+                            <button type="button" class="btn btn-primary"><i class="bi bi-trash-fill"></i></button>
+                            <button type="button" class="btn btn-primary"><i class="bi bi-card-checklist"></i></button>
+                        </div>
+                    ),
+            dateincident : '08/21/2021',
+            timeincident : '19.00',
+            typeofincident : 'Combing',
+            party1 : 'Security forces',
+            party2 : 'EAO - KIA',
+            typeoftarget : 'Army Facality',
+            stateregion : 'Mon',
+            towns : 'Paung'
+        }
+        
     ]
 
     return (
     <div className="incidentDataDraft">
         <div className='row align-items-center'>
             <div className="col-lg-2">
-                <button type="button" class="btn btn-primary btn-sm"><i class="bi bi-plus-circle-fill"></i> Add New Draft</button>
+               <Link to='/AddNewDraft'><button type="button" class="btn btn-primary btn-sm"><i class="bi bi-plus-circle-fill"></i> Add New Draft</button></Link>
             </div>
             <div className="col-lg-2">
                 <div className='d-flex align-items-center'>
@@ -209,5 +193,3 @@ function IncidentDataDrafts() {
     </div>
     )
 }
-
-export default IncidentDataDrafts

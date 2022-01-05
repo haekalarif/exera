@@ -6,14 +6,15 @@ import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../App.css";
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
-import IncidentDataDrafts from './IncidentDataDrafts';
 import $ from 'jquery';
 import { useHistory } from 'react-router-dom';
+import IncidentDataDrafts from './IncidentDataDrafts';
+import AddNewDraft from './AddNewDraft';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
-function MainDashboard(){
+export default function MainDashboard(){
 
   let [collapsed, setCollapsed]=useState();
   let history = useHistory();
@@ -106,6 +107,7 @@ function MainDashboard(){
                 <div className="container-fluid">
                   <Switch>
                     <Route exact path='/IncidentDataDrafts' component={IncidentDataDrafts} />
+                    <Route exact path='/AddNewDraft' component={AddNewDraft} />
                   </Switch>
                 </div>
             </div>
@@ -118,4 +120,3 @@ function MainDashboard(){
       </div>
     );
 }
-export default MainDashboard;
