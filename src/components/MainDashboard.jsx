@@ -11,14 +11,12 @@ import { useHistory } from 'react-router-dom';
 import IncidentDataDrafts from './IncidentDataDrafts';
 import AddNewDraft from './AddNewDraft';
 
-const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
-
 export default function MainDashboard(){
 
   let [collapsed, setCollapsed]=useState();
   let history = useHistory();
 
+  
   let toggle = (e) => { //sidebar collaps
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
@@ -35,6 +33,7 @@ export default function MainDashboard(){
   }
 
   useEffect(() => {
+    
     setCollapsed(true);
   }, [])
 

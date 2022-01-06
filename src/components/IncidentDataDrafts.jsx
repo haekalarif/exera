@@ -1,131 +1,218 @@
 import React,{useState} from 'react'
 import { useRouteMatch, Link} from 'react-router-dom'
-import { Button } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
+import { Table, Tag, Space } from 'antd';
 import DataTable from 'react-data-table-component';
 
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 export default function IncidentDataDrafts() {
-    const { url } = useRouteMatch();
     
-    const columns = [
-        {
-            name: 'Status',
-            selector: row => row.status,
-            sortable : true,
-        },
-        {
-            name: 'Action',
-            selector: row => row.action,
-            sortable : true
-        },
-        {
-            name: 'Date Incident',
-            selector: row => row.dateincident,
-            sortable : true
-        },
-        {
-            name: 'Time Incident',
-            selector: row => row.timeincident,
-            sortable : true
-        },
-        {
-            name: 'Type of incident',
-            selector: row => row.typeofincident,
-            sortable : true
-        },
-        {
-            name: 'Party 1',
-            selector: row => row.party1,
-            sortable : true
-        },
-        {
-            name: 'Party 2',
-            selector: row => row.party2,
-            sortable : true
-        },
-        {
-            name: 'Type of Target',
-            selector: row => row.typeoftarget,
-            sortable : true
-        },
-        {
-            name: 'State/Region',
-            selector: row => row.stateregion,
-            sortable : true
-        },
-        {
-            name: 'Towns',
-            selector: row => row.towns,
-            sortable : true
-        },
+    // const columns = [
+    //     {
+    //         name: 'Status',
+    //         selector: row => row.status,
+    //         sortable : true,
+    //     },
+    //     {
+    //         name: 'Action',
+    //         selector: row => row.action,
+    //         sortable : true
+    //     },
+    //     {
+    //         name: 'Date Incident',
+    //         selector: row => row.dateincident,
+    //         sortable : true
+    //     },
+    //     {
+    //         name: 'Time Incident',
+    //         selector: row => row.timeincident,
+    //         sortable : true
+    //     },
+    //     {
+    //         name: 'Type of incident',
+    //         selector: row => row.typeofincident,
+    //         sortable : true
+    //     },
+    //     {
+    //         name: 'Party 1',
+    //         selector: row => row.party1,
+    //         sortable : true
+    //     },
+    //     {
+    //         name: 'Party 2',
+    //         selector: row => row.party2,
+    //         sortable : true
+    //     },
+    //     {
+    //         name: 'Type of Target',
+    //         selector: row => row.typeoftarget,
+    //         sortable : true
+    //     },
+    //     {
+    //         name: 'State/Region',
+    //         selector: row => row.stateregion,
+    //         sortable : true
+    //     },
+    //     {
+    //         name: 'Towns',
+    //         selector: row => row.towns,
+    //         sortable : true
+    //     },
         
-    ];
+    // ];
     
+    // const data = [
+    //     {
+    //         id: 1,
+    //         status: <p className="p-1 m-0 bg-danger text-white text-bold rounded">
+    //                     <strong>Rejected <i class="bi bi-x-circle-fill"></i></strong>
+    //                 </p>,
+    //         action : (  <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+    //                         <button type="button" class="btn btn-primary"><i class="bi bi-clipboard-plus"></i></button>
+    //                         <button type="button" class="btn btn-primary"><i class="bi bi-trash-fill"></i></button>
+    //                         <button type="button" class="btn btn-primary"><i class="bi bi-card-checklist"></i></button>
+    //                     </div>
+    //                 ),
+    //         dateincident : '08/21/2021',
+    //         timeincident : '19.00',
+    //         typeofincident : 'Ambing',
+    //         party1 : 'Security forces',
+    //         party2 : 'EAO - KIA',
+    //         typeoftarget : 'Army Facality',
+    //         stateregion : 'Mon',
+    //         towns : 'Paung'
+    //     },
+    //     {
+    //         id: 2,
+    //         status: (<p className="p-1 m-0 bg-warning text-dark text-bold rounded">
+    //                     <strong>Draft <i class="bi bi-file-bar-graph-fill"></i></strong>
+    //                 </p>),
+    //         action : (  <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+    //                         <button type="button" class="btn btn-primary"><i class="bi bi-clipboard-plus"></i></button>
+    //                         <button type="button" class="btn btn-primary"><i class="bi bi-trash-fill"></i></button>
+    //                         <button type="button" class="btn btn-primary"><i class="bi bi-card-checklist"></i></button>
+    //                     </div>
+    //                 ),
+    //         dateincident : '08/21/2021',
+    //         timeincident : '19.00',
+    //         typeofincident : 'Bombing',
+    //         party1 : 'Security forces',
+    //         party2 : 'EAO - KIA',
+    //         typeoftarget : 'Army Facality',
+    //         stateregion : 'Mon',
+    //         towns : 'Paung'
+    //     },
+    //     {
+    //         id: 3,
+    //         status: (<p className="p-1 m-0 bg-success text-white text-bold rounded">
+    //                     <strong>Submitted <i class="bi bi-check-circle-fill"></i></strong>
+    //                 </p>),
+    //         action : (  <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+    //                         <button type="button" class="btn btn-primary"><i class="bi bi-clipboard-plus"></i></button>
+    //                         <button type="button" class="btn btn-primary"><i class="bi bi-trash-fill"></i></button>
+    //                         <button type="button" class="btn btn-primary"><i class="bi bi-card-checklist"></i></button>
+    //                     </div>
+    //                 ),
+    //         dateincident : '08/21/2021',
+    //         timeincident : '19.00',
+    //         typeofincident : 'Combing',
+    //         party1 : 'Security forces',
+    //         party2 : 'EAO - KIA',
+    //         typeoftarget : 'Army Facality',
+    //         stateregion : 'Mon',
+    //         towns : 'Paung'
+    //     }
+        
+    // ]
     const data = [
         {
-            id: 1,
-            status: <p className="p-1 m-0 bg-danger text-white text-bold rounded">
-                        <strong>Rejected <i class="bi bi-x-circle-fill"></i></strong>
-                    </p>,
-            action : (  <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-primary"><i class="bi bi-clipboard-plus"></i></button>
-                            <button type="button" class="btn btn-primary"><i class="bi bi-trash-fill"></i></button>
-                            <button type="button" class="btn btn-primary"><i class="bi bi-card-checklist"></i></button>
-                        </div>
-                    ),
-            dateincident : '08/21/2021',
-            timeincident : '19.00',
-            typeofincident : 'Ambing',
-            party1 : 'Security forces',
-            party2 : 'EAO - KIA',
-            typeoftarget : 'Army Facality',
-            stateregion : 'Mon',
-            towns : 'Paung'
+          status: 'Rejected',
+          action: '',
+          dataincident : '08/21/2021',
+          timeincident : '19.00',
+          typeofincident : 'Bombing',
+          party1 : 'Security forces',
+          party2 : 'EAO - KIA',
+          typeoftarget : 'Army Facality',
+          stateregion : 'Mon',
+          towns : 'Paung',
+        },
+      ];
+
+      const columns = [
+        {
+          title: 'Status',
+          dataIndex: 'status',
+          key: 'status',
+          responsive: ['sm','md','lg','xs'],
+          render: text => (
+            <p className="p-1 m-0 bg-danger text-white text-bold rounded">
+                <strong>{text} <i class="bi bi-x-circle-fill"></i></strong>
+            </p>
+          ) ,
         },
         {
-            id: 2,
-            status: (<p className="p-1 m-0 bg-warning text-dark text-bold rounded">
-                        <strong>Draft <i class="bi bi-file-bar-graph-fill"></i></strong>
-                    </p>),
-            action : (  <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-primary"><i class="bi bi-clipboard-plus"></i></button>
-                            <button type="button" class="btn btn-primary"><i class="bi bi-trash-fill"></i></button>
-                            <button type="button" class="btn btn-primary"><i class="bi bi-card-checklist"></i></button>
-                        </div>
-                    ),
-            dateincident : '08/21/2021',
-            timeincident : '19.00',
-            typeofincident : 'Bombing',
-            party1 : 'Security forces',
-            party2 : 'EAO - KIA',
-            typeoftarget : 'Army Facality',
-            stateregion : 'Mon',
-            towns : 'Paung'
+          title: 'Action',
+          dataIndex: 'action',
+          key: 'action',
+          responsive: ['sm','md','lg','xs'],
+          sorter: (a, b) => a.age - b.age,
+          render: text =>(  <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-primary"><i class="bi bi-clipboard-plus"></i></button>
+                                <button type="button" class="btn btn-primary"><i class="bi bi-trash-fill"></i></button>
+                                <button type="button" class="btn btn-primary"><i class="bi bi-card-checklist"></i></button>
+                            </div>
+          )
         },
         {
-            id: 3,
-            status: (<p className="p-1 m-0 bg-success text-white text-bold rounded">
-                        <strong>Submitted <i class="bi bi-check-circle-fill"></i></strong>
-                    </p>),
-            action : (  <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-primary"><i class="bi bi-clipboard-plus"></i></button>
-                            <button type="button" class="btn btn-primary"><i class="bi bi-trash-fill"></i></button>
-                            <button type="button" class="btn btn-primary"><i class="bi bi-card-checklist"></i></button>
-                        </div>
-                    ),
-            dateincident : '08/21/2021',
-            timeincident : '19.00',
-            typeofincident : 'Combing',
-            party1 : 'Security forces',
-            party2 : 'EAO - KIA',
-            typeoftarget : 'Army Facality',
-            stateregion : 'Mon',
-            towns : 'Paung'
+          title: 'Data Incident',
+          dataIndex: 'dataincident',
+          key: 'dataincident',
+          responsive: ['sm','md','lg','xs'],
+        },
+        {
+          title: 'Time Incident',
+          dataIndex: 'timeincident',
+          key: 'timeincident',
+          responsive: ['sm','md','lg','xs'],
+        },
+        {
+          title: 'Type of Incident',
+          dataIndex: 'typeofincident',
+          key: 'typeofincident',
+          responsive: ['sm','md','lg','xs'],
+        },
+        {
+          title: 'Party 1',
+          dataIndex: 'party1',
+          key: 'party1',
+          responsive: ['sm','md','lg','xs'],
+        },
+        {
+          title: 'Party 2',
+          dataIndex: 'party2',
+          key: 'party2',
+          responsive: ['sm','md','lg','xs'],
+        },
+        {
+          title: 'Type of Targer',
+          dataIndex: 'typeoftarget',
+          key: 'typeoftarget',
+          responsive: ['sm','md','lg','xs'],
+        },
+        {
+          title: 'State/Region',
+          dataIndex: 'stateregion',
+          key: 'stateregion',
+          responsive: ['sm','md','lg','xs'],
+        },
+        {
+          title : 'Towns',
+          dataIndex : 'towns',
+          key : 'towns'  ,
+          responsive: ['sm','md','lg','xs'],
         }
-        
-    ]
+      ];
 
     return (
     <div className="incidentDataDraft">
@@ -181,12 +268,17 @@ export default function IncidentDataDrafts() {
         {/* //table  */}
         <div className="row">
             <div className="col-lg-12">
-                <DataTable
+                {/* <DataTable
                     columns={columns}
                     data={data}
                     highlightOnHover
                     pointerOnHover
                     pagination 
+                /> */}
+                <Table 
+                columns={columns}
+                dataSource={data}
+                pagination={{ position: ['bottomCenter'] }}
                 />
             </div>
         </div>
