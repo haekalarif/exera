@@ -1,12 +1,12 @@
 import React,{useState} from 'react'
-import { useRouteMatch, Link} from 'react-router-dom'
+import { useRouteMatch, Link, useHistory} from 'react-router-dom'
 import { Table, Tag, Space } from 'antd';
 import DataTable from 'react-data-table-component';
-
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 export default function IncidentDataDrafts() {
-    
+    const {url, path} = useRouteMatch();
+    console.log(useRouteMatch());
     // const columns = [
     //     {
     //         name: 'Status',
@@ -218,9 +218,9 @@ export default function IncidentDataDrafts() {
     <div className="incidentDataDraft">
         <div className='row align-items-center'>
             <div className="col-lg-2">
-               <Link to='/AddNewDraft'><button type="button" class="btn btn-primary btn-sm"><i class="bi bi-plus-circle-fill"></i> Add New Draft</button></Link>
+               <Link to="/Index/AddNewDraft"><button type="button" class="btn btn-primary btn-sm"><i class="bi bi-plus-circle-fill"></i> Add New Draft</button></Link>
             </div>
-            <div className="col-lg-2">
+            {/* <div className="col-lg-2">
                 <div className='d-flex align-items-center'>
                     <div className="d-inline-block mx-2" >
                         <label for="search" class="col-form-label">Search: </label>
@@ -229,24 +229,24 @@ export default function IncidentDataDrafts() {
                         <input type="text" id="search" class="form-control form-control-sm" />
                     </div>   
                 </div>
-            </div>
-            <div className="col-lg-2">
+            </div> */}
+            {/* <div className="col-lg-2">
                 <div className="d-flex">
                     <div className="input-group input-group-sm">
                         <span className="input-group-text" id="date">Date From:</span>
                         <input type="date" className="form-control form-control-sm" aria-describedby="date" id="dateto"/>
                     </div>
                 </div>
-            </div>
-            <div className="col-lg-2">
+            </div> */}
+            {/* <div className="col-lg-2">
                 <div className="d-flex">
                     <div className="input-group input-group-sm">
                         <span className="input-group-text" id="dateto">Date To:</span>
                         <input type="date" className="form-control form-control-sm" aria-describedby="dateto" id="dateto"/>
                     </div>
                 </div>
-            </div>
-            <div className="col-lg-2">
+            </div> */}
+            {/* <div className="col-lg-2">
                 <div className="d-flex">
                     <div className="input-group input-group-sm">
                         <span className="input-group-text" id="selectone">Status</span>
@@ -256,18 +256,18 @@ export default function IncidentDataDrafts() {
                             <option value="2">Two</option>
                             <option value="3">Three</option>
                         </select>
-                        {/* <input type="date" className="form-control form-control-sm" aria-describedby="date"/> */}
+                        <input type="date" className="form-control form-control-sm" aria-describedby="date"/>
                     </div>
                 </div>
-            </div>
-            <div className="col-lg-2 align-items-center">
+            </div> */}
+            {/* <div className="col-lg-2 align-items-center">
                 <button type="button" class="btn btn-primary btn-sm"><i class="bi bi-funnel-fill text-white"></i> Apply Filter</button>
-            </div>
+            </div> */}
         </div>
         
         {/* //table  */}
-        <div className="row">
-            <div className="col-lg-12">
+        {/* <div className="row">
+            <div className="col-lg-12"> */}
                 {/* <DataTable
                     columns={columns}
                     data={data}
@@ -275,13 +275,14 @@ export default function IncidentDataDrafts() {
                     pointerOnHover
                     pagination 
                 /> */}
-                <Table 
+                {/* <Table 
                 columns={columns}
                 dataSource={data}
                 pagination={{ position: ['bottomCenter'] }}
-                />
-            </div>
-        </div>
+                scroll={{ x: 100 }}
+                /> */}
+            {/* </div>
+        </div> */}
     </div>
     )
 }
